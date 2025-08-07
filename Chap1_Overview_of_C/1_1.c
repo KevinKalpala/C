@@ -13,3 +13,5 @@ int main()
 
 	return 0; // Return success
 }
+
+// Note to run this program on github terminal you need to run "gcc 1_1.c -o 1_1"

@@ -43,7 +43,7 @@ int main()
     area = calculateArea(a, b, c, s);
 
     // Display the value Area
-    printf("Area of the triangle = %5.7f cm2 (when a = %5.3f, b = %5.3f, c = %5.3f)\n",area, a, b, c);
+    printf("Area of the triangle = %5.7f cm\u00b2 (when a = %5.3f cm, b = %5.3f cm, c = %5.3f cm)\n",area, a, b, c); // note You could format "cm2" as "cm²" using Unicode (² = \u00B2) if displaying in a GUI or rich-text console.
 
     return 0;
 }

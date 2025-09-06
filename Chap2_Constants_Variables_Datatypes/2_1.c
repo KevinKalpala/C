@@ -10,36 +10,36 @@
 
 /**
 * Function to calculate the sum of harmonic series 1+1/2+....+1/n for some value of n
-* @param n No of digits of series
+* @param n Number of terms in the series
 * @return Sum of series
 */
-float cal_sum(int n);
+double cal_sum(int n);
 
 int main()
 {
-    int n_digits; // To store the value of the no of digits
-    float sum; // To store the sum of the series
+    unsigned int n_terms; // Number of terms in the harmonic series
+    double sum; // To store the sum of the series
 
-    // Read the value of n_digits from the user
-    printf("Enter the no of digits till which you want to calculate the sum of series\n");
-    scanf("%d",&n_digits);
+    // Read the value of n_terms from the user
+    printf("Enter the number of terms for which you want to calculate the harmonic series sum:\n");
+    scanf("%u", &n_terms);
 
     // Calculate the sum of series
-    sum = cal_sum(n_digits);
+    sum = cal_sum(n_terms);
 
     // Display the result
-    printf("The sum of the harmonic series 1+1/2+.........+1/n for n = %d is %f\n",n_digits,sum);
+    printf("The sum of the harmonic series 1+1/2+.........+1/n for n = %u is %.10f\n", n_terms, sum);
 
     return 0;
 }
 
-float cal_sum(int n)
+double cal_sum(int n)
 {
-    float result = 0; // To store the sum of series
+    double result = 0; // To store the sum of series
 
     for(int i=1; i<=n; i++)
     {
-        result = result + 1/i;
+        result = result + 1/(double)i;
     }
 
     return result;

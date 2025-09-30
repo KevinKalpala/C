@@ -21,7 +21,7 @@ int main()
     printf("Calculated Efficiency (non-accurate) = %.2lf\n", calEfficiency1);
     printf("Calculated Efficiency (accurate) = %.2lf\n", calEfficiency2);
     printf("Note: In the first case, the cast operator is NOT used, so integer division occurs.\n");
-    printf("In the second case, the cast operator IS used, resulting in a more accurate calculation.\n");
+    printf("      In the second case, the cast operator IS used, resulting in a more accurate calculation.\n");
 
     return 0;
 }

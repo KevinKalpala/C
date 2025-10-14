@@ -10,6 +10,8 @@
 
 void getData(float* n);
 
+int roundHalfEven(float n);
+
 void printBar(float n);
 
 int main()
@@ -27,8 +29,11 @@ int main()
 
     // Print the pattern
     printBar(num1);
+    printf("\n");
     printBar(num2);
+    printf("\n");
     printBar(num3);
+    printf("\n");
     printBar(num4);
 
     return 0;
@@ -39,7 +44,7 @@ void getData(float* n)
     while(1)
     {
         printf("\nPlease enter a number: ");
-        if(scanf("%lf", &n) != 1)
+        if(scanf("%f", n) != 1)
         {
             printf("\nError: An unexpected error just occurred.\n");
             printf("Please try again................\n");
@@ -56,24 +61,38 @@ void getData(float* n)
     }
 }
 
+int roundHalfEven(float n)
+{
+    float floorVal = floorf(n);
+    float decimal = n - floorVal;
+
+    if(decimal < 0.5)
+    {
+        return (int)floorVal;
+    }else if(decimal > 0.5)
+    {
+        return (int)(floorVal + 1);
+    }else{
+        if((int)floorVal % 2 == 0){
+            return (int)floorVal;
+        }else{
+            return (int)(floorVal + 1);
+        }
+    }
+}
+
 void printBar(float n)
 {
-    int roundedN;
-    float checkValue = fmod(n, 2.0);
-    if((checkValue >= 0 || checkValue < 1) && !(checkValue < 0) && checkValue <= 0.5)
-    {
-        roundedN = (int)(n); 
-    }else if((checkValue >= 0 || checkValue < 1) && !(checkValue < 0) && checkValue > 0.5){
-        roundedN = (int)(n + 0.5);
-    }else{
-        roundedN = (int)(n + 0.5);
-    }
+    int roundedN = roundHalfEven(n);
 
     for(int i = 1; i <= 3; i++)
     {
         for(int j = 1; j <= roundedN; j++)
         {
             printf("*\t");
+            if(i == 2 && j == roundedN){
+                printf("%.2f", n);
+            }
         }
         printf("\n");
     }

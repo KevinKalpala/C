@@ -6,6 +6,7 @@
 * Name          Code            Price
 * Fan           67831           1234.50
 * Motor         450             5786.70
+* Note that the name and code must be left-justified and price must be right-justified
 */
 
 #include<stdio.h>

@@ -47,7 +47,3 @@ git config --local commit.gpgsign false
 * Errors like this often appear in **fresh environments**, automated setups, or cloud IDEs where GPG hasn’t been configured.
 
 ---
-
-If you want, I can give a **little diagram showing the “commit signing flow”** for Codespaces vs GPG, which makes it very easy to visualize why some errors happen and some commits get verified automatically.
-
-Do you want me to make that?

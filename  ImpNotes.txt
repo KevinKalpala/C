@@ -1,0 +1,53 @@
+### **1️⃣ What the error was**
+
+The original error was:
+
+```
+error: gpg failed to sign the data
+error making request: 403 | Author is invalid
+fatal: failed to write commit object
+```
+
+* **`gpg failed to sign the data`**: Git was trying to **sign your commit locally** using GPG.
+* **`403 | Author is invalid`**: GitHub rejected the signed commit because **Git couldn’t produce a valid signature**, or the author email didn’t match your GitHub account.
+
+Essentially, GitHub couldn’t verify your commit because either:
+
+1. **No GPG key existed locally** (like in your Codespace, `.gnupg` was empty), or
+2. **The commit email didn’t match** a GitHub-verified email, or
+3. **Git was trying to sign by default**, even though no signing setup was ready.
+
+---
+
+### **2️⃣ Why it happens in Codespaces / fresh environments**
+
+* In a fresh Codespace, **Git sometimes has `commit.gpgsign=true` by default** (or via Codespace templates).
+* At the same time, **no GPG key exists yet** (`~/.gnupg` was empty).
+* Git tries to sign the commit → fails → GitHub sees a commit with **invalid/missing signature** → returns 403.
+
+---
+
+### **3️⃣ How disabling signing fixes it**
+
+When you run:
+
+```bash
+git config --local commit.gpgsign false
+```
+
+* Git stops trying to sign the commit.
+* Commits are made normally, and GitHub associates them with your **GitHub email**, which is enough for Codespace commits to be **verified automatically** via GitHub’s own system.
+* That’s why your commits now work without errors.
+
+---
+
+### **💡 Key takeaway**
+
+* **GPG signing is optional** — GitHub can mark commits as verified even if you don’t have a local key, **as long as the email is recognized**.
+* Errors like this often appear in **fresh environments**, automated setups, or cloud IDEs where GPG hasn’t been configured.
+
+---
+
+If you want, I can give a **little diagram showing the “commit signing flow”** for Codespaces vs GPG, which makes it very easy to visualize why some errors happen and some commits get verified automatically.
+
+Do you want me to make that?

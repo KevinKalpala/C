@@ -71,10 +71,10 @@ int main()
         printf("(b) Students who have obtained more than 60 marks             : %d\n", rangeCount[0] + rangeCount[1]);
         printf("(c) Students who have obtained more than 40 marks             : %d\n", rangeCount[0] + rangeCount[1] + rangeCount[2]);
         printf("(d) Students who have obtained 40 or less marks               : %d\n",rangeCount[3]);
-        printf("(e) Students who have obtained marks in the range 81 to 100\n : %d\n", rangeCount[0]);
-        printf("(f) Students who have obtained marks in the range 61 to 80\n  : %d\n", rangeCount[1]);
-        printf("(g) Students who have obtained marks in the range 41 to 60\n  : %d\n", rangeCount[2]);
-        printf("(h) Students who have obtained marks in the range 0 to 40\n   : %d\n", rangeCount[3]);
+        printf("(e) Students who have obtained marks in the range 81 to 100   : %d\n", rangeCount[0]);
+        printf("(f) Students who have obtained marks in the range 61 to 80    : %d\n", rangeCount[1]);
+        printf("(g) Students who have obtained marks in the range 41 to 60    : %d\n", rangeCount[2]);
+        printf("(h) Students who have obtained marks in the range 0 to 40     : %d\n", rangeCount[3]);
         
 
         while(1)
@@ -104,7 +104,7 @@ int main()
         }
         else
         {
-            printf("Thank you for the using this program\n");
+            printf("\nThank you for the using this program\n");
             printf("Hope you have a very nice day\n");
             printf("\n...............................Exiting..............................\n");
             break;
@@ -140,7 +140,7 @@ void getNoOfStudents(int* x)
 
 void getMarks(int arr[], int size)
 {
-    printf("Please enter the marks of %d students in order:-\n");
+    printf("Please enter the marks of %d students in order:-\n", size);
     for (int i = 0; i < size; i++)
     {
         while (1)

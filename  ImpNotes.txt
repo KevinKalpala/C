@@ -32,7 +32,7 @@ Essentially, GitHub couldn’t verify your commit because either:
 When you run:
 
 ```bash
-git config --local commit.gpgsign false
+git config --local commit.gpgsign false <------ Very Important (main command)
 ```
 
 * Git stops trying to sign the commit.

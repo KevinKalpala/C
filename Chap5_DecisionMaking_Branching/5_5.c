@@ -4,16 +4,30 @@
  * Date               : 13 / 11 / 2025
  * 
  * Description:
- * 
+ * This program records the marks of students in three subjects (Maths, Physics, Chemistry)
+ * and computes the number of students meeting specific eligibility criteria. 
+ * It also categorizes students based on their marks and provides a detailed tabular output 
+ * of all students who satisfy all criteria. The program allows repeated execution as desired.
  * 
  * Input:
- * 
+ * - Number of students (positive integer)
+ * - Marks for each student in Maths, Physics, and Chemistry (integers from 0 to 100)
  * 
  * Output:
+ * - Detailed table of students who satisfy all eligibility criteria
+ * - Total number of eligible students
+ * - Marks of each eligible student in Maths, Physics, and Chemistry
  * 
+ * Eligibility Criteria:
+ * 1. Maths marks >= 60
+ * 2. Physics marks >= 50
+ * 3. Chemistry marks >= 40
+ * 4. Total marks >= 200 OR sum of Maths + Physics >= 150
  * 
  * Note:
- * 
+ * - The program validates user input and ensures marks are within 0–100.
+ * - The program can be re-run multiple times based on user preference.
+ * - Uses minimal if statements where possible in eligibility checks.
  * -------------------------------------------------------------------------------------------
  */
 

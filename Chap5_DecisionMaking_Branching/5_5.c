@@ -55,17 +55,17 @@ int main()
         while (1)
         {
             printf("Do you want to re-run this program? (Press 1 for YES and 0 for NO)\n");
-            if (scanf("%d", &repeatProgram) != '\n')
+            if (scanf("%d", &repeatProgram) != 1)
             {
                 printf("Error: An unexpected error just occurred.\n");
-                printf("We are very sorry for the inconvenience. Please try again...........\n");
+                printf("Invalid input. Please try again.\n");
                 while(getchar() != '\n');
                 continue;
             }
             else if (repeatProgram != 0 && repeatProgram != 1)
             {
                 printf("Error: Please enter a valid value\n");
-                printf("Press 1 for YES and 2 for NO\n");
+                printf("Press 1 for YES and 0 for NO\n");
                 continue;
             }
             else
@@ -97,7 +97,7 @@ void getNoOfStudents(int* n)
         if (scanf("%d", n) != 1)
         {
             printf("Error: An unexpected error just occurred.\n");
-            printf("We are very sorry for the inconvenience. Please try again...........\n");
+            printf("Invalid input. Please try again.\n");
             while(getchar() != '\n');
             continue;
         }
@@ -115,80 +115,35 @@ void getNoOfStudents(int* n)
 
 void getData(int marks[][3], int size)
 {
-    while (1)
+    for (int i = 0; i < size; i++)
     {
-        for (int i = 0; i < size; i++)
+        printf("\n****** Student Number %d ******\n", i + 1);
+        printf("Please enter the following details:\n");
+
+        for (int j = 0; j < 3; j++)
         {
-            printf("\n****** Student Number %d ******\n", i+1);
-            printf("Please enter the following details for the students:-\n");
-            for (int j = 0; j < 3; j++)
+            while (1)   // <-- This ensures re-asking for the SAME subject
             {
-                if (j == 0)
+                if (j == 0) printf("Maths: ");
+                if (j == 1) printf("Physics: ");
+                if (j == 2) printf("Chemistry: ");
+
+                if (scanf("%d", &marks[i][j]) != 1)
                 {
-                    printf("Maths: ");
-                    if (scanf("%d", &marks[i][j]) != 1)
-                    {
-                        printf("Error: An unexpected error just occurred.\n");
-                        printf("We are very sorry for the inconvenience. Please try again..............\n");
-                        while(getchar() != '\n');
-                        continue;
-                    }
-                    else if (marks[i][j] <= MIN || marks[i][j] >= MAX)
-                    {
-                        printf("Error: Please enter a value between %d and %d\n", MIN, MAX);
-                        continue;
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    printf("Error: Invalid input. Please try again.\n");
+                    while (getchar() != '\n'); // clear buffer
+                    continue; // re-ask same subject
                 }
 
-                if (j == 1)
+                if (marks[i][j] < MIN || marks[i][j] > MAX)
                 {
-                    printf("Physics: ");
-                    if (scanf("%d", &marks[i][j]) != 1)
-                    {
-                        printf("Error: An unexpected error just occurred.\n");
-                        printf("We are very sorry for the inconvenience. Please try again..............\n");
-                        while(getchar() != '\n');
-                        continue;
-                    }
-                    else if (marks[i][j] <= MIN || marks[i][j] >= MAX)
-                    {
-                        printf("Error: Please enter a value between %d and %d\n", MIN, MAX);
-                        continue;
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    printf("Error: Please enter a value between %d and %d (inclusive)\n", MIN, MAX);
+                    continue; // re-ask same subject
                 }
 
-                if (j == 2)
-                {
-                    printf("Chemistry: ");
-                    if (scanf("%d", &marks[i][j]) != 1)
-                    {
-                        printf("Error: An unexpected error just occurred.\n");
-                        printf("We are very sorry for the inconvenience. Please try again..............\n");
-                        while(getchar() != '\n');
-                        continue;
-                    }
-                    else if (marks[i][j] <= MIN || marks[i][j] >= MAX)
-                    {
-                        printf("Error: Please enter a value between %d and %d\n", MIN, MAX);
-                        continue;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
+                break; // <-- valid input → exit while loop → next subject
             }
         }
-
-        break;
     }
 }
 
@@ -200,17 +155,17 @@ void checkEligibility(int marks[][3], int size)
     {
         int criteria1Status = 0, criteria2Status = 0, criteria3Status = 0, criteria4Status = 0;
 
-        criteria1Status = checkCriteria1(marks[i][1]);
-        criteria2Status = checkCriteria2(marks[i][2]);
-        criteria3Status = checkCriteria3(marks[i][3]);
-        criteria4Status = checkCriteria4(marks[i][1], marks[i][2], marks[i][3]);
+        criteria1Status = checkCriteria1(marks[i][0]);
+        criteria2Status = checkCriteria2(marks[i][1]);
+        criteria3Status = checkCriteria3(marks[i][2]);
+        criteria4Status = checkCriteria4(marks[i][0], marks[i][1], marks[i][2]);
 
         if(criteria1Status && criteria2Status && criteria3Status && criteria4Status)
         {
-            eligibleStudents[totalEligibleStudents][0] = i;
-            eligibleStudents[totalEligibleStudents][1] = marks[i][1];
-            eligibleStudents[totalEligibleStudents][2] = marks[i][2];
-            eligibleStudents[totalEligibleStudents][3] = marks[i][3];
+            eligibleStudents[totalEligibleStudents][0] = i + 1;
+            eligibleStudents[totalEligibleStudents][1] = marks[i][0];
+            eligibleStudents[totalEligibleStudents][2] = marks[i][1];
+            eligibleStudents[totalEligibleStudents][3] = marks[i][2];
             totalEligibleStudents++;
         }
     }
@@ -219,27 +174,31 @@ void checkEligibility(int marks[][3], int size)
     printf("Total eligible students found: %d\n", totalEligibleStudents);
     printf("Their details are mentioned below:-\n");
     printf("----------------------------------------------------------------------------------------------\n");
-    printf("|                          |----------------------  Marks Obtained   ------------------------|\n");
+    printf("|                          |----------------------  Marks Obtained   -------------------------|\n");
+    printf("|%-25s | %-22s%-22s%-21s|\n", "  Student No", "Maths", "Physics", "Chemistry");
     printf("----------------------------------------------------------------------------------------------\n");
-    printf("%-15s%-15s%-15s%-15s\n", "| Student No", "Maths", "Physics", "Chemistry |");
-    for (int i = 0; i <= totalEligibleStudents; i++)
+    for (int i = 0; i < totalEligibleStudents; i++)
     {
         for (int j = 0; j < 4; j++)
         {
             if (j == 0)
             {
-                printf("| %-15d", eligibleStudents[i][j]);
+                printf("|  %-24d|", eligibleStudents[i][j]);
                 
             }
             else if (j == 3)
             {
-                printf("%-15d |", eligibleStudents[i][j]);
+                printf("%-22d |", eligibleStudents[i][j]);
                 printf("\n");
                 
             }
+            else if (j == 1)
+            {
+                printf(" %-21d", eligibleStudents[i][j]);
+            }
             else
             {
-                printf("%-15d", eligibleStudents[i][j]);
+                printf("%-21d", eligibleStudents[i][j]);
             }
         }
     }   
@@ -266,6 +225,7 @@ int checkCriteria3(int chemistryMarks)
 
 int checkCriteria4(int mathsMarks, int physicsMarks, int chemistryMarks)
 {
+    // note students can either qualify if total marks >= 200 or marks in phyiscs+maths >= 150
     if ((mathsMarks + physicsMarks + chemistryMarks) >= 200) return 1;
     else if ((mathsMarks + physicsMarks) >= 150) return 1;
     else return 0;

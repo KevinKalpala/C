@@ -1,20 +1,20 @@
 /**
- * --------------------------------------------------------------------------------------------------------
- * Program written by : Kevin Kalpala
- * Date               : 26 / 11 / 25
- * 
  * Description:
- * 
- * 
- * Input:
- * 
- * 
- * Output:
- * 
- * 
- * Note:
- * 
- * --------------------------------------------------------------------------------------------------------
+ *     This program reads a floating-point value x from the user and evaluates a
+ *     simple piecewise function defined as:
+ *
+ *         y = -1   if x < 0
+ *         y =  0   if x = 0
+ *         y =  1   if x > 0
+ *
+ *     The evaluation is demonstrated in three different ways:
+ *         (a) Using nested if statements
+ *         (b) Using else-if statements
+ *         (c) Using the conditional (?:) operator
+ *
+ *     Floating-point equality is handled safely using an EPS-based comparison
+ *     macro to avoid precision issues. User input is validated to ensure that
+ *     only numeric values are accepted.
  */
 
 #include<stdio.h>

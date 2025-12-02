@@ -4,16 +4,25 @@
  * Date               : 02 / 12 / 25
  * 
  * Description:
- * 
+ *      This program reads two integer values representing a lower and upper limit. It then checks all
+ *      numbers within this range and identifies which ones are prime. The program counts and displays
+ *      all prime numbers found between the given range.
+ *      
+ *      The original version of the program checked a single number for primality. In this modified 
+ *      version, the logic has been expanded to handle a range of numbers instead of just one.
  * 
  * Input:
- * 
+ *      lower limit → An integer value representing the starting point of the range.
+ *      upper limit → An integer value representing the ending point of the range.
  * 
  * Output:
- * 
+ *      - A list of all prime numbers between the given limits.
+ *      - The total count of prime numbers found.
  * 
  * Note:
- * 
+ *      - Input is validated to ensure only integers are accepted.
+ *      - sqrt() from <math.h> is used to optimize the prime-checking logic.
+ *      - Numbers less than or equal to 1 are automatically excluded, as they are not prime.
  * --------------------------------------------------------------------------------------------------
  */
 

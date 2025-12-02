@@ -4,16 +4,28 @@
  * Date               : 02 / 12 / 25
  * 
  * Description:
+ *      This program reads a double value 'x' representing an angle in radians and a character 'T' representing
+ *      the trigonometric function to be applied. Based on the value of 'T', the program calculates and displays:
+ *          - sin(x), if T = 's' or 'S'
+ *          - cos(x), if T = 'c' or 'C'
+ *          - tan(x), if T = 't' or 'T'
  * 
+ *      The program includes two different decision-making approaches:
+ *          1. IF-ELSE ladder (commented section)
+ *          2. SWITCH-CASE structure (active section)
+ *      This allows comparison between both methods for handling multiple conditions.
  * 
  * Input:
- * 
+ *      x → A double value (angle in radians), restricted to the range 0 to 2π.
+ *      T → A character indicating the trigonometric function ('S', 'C', or 'T', case-insensitive).
  * 
  * Output:
- * 
+ *      Displays the computed trigonometric value formatted to three decimal places.
  * 
  * Note:
- * 
+ *      - Uses input validation to ensure correct data types and accepted character options.
+ *      - Uses <math.h> functions: sin(), cos(), and tan().
+ *      - Demonstrates good programming practices such as input validation and function modularity.
  * -------------------------------------------------------------------------------------------------------------------
  */
 

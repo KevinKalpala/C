@@ -1,20 +1,33 @@
 /**
- * --------------------------------------------------------------------------------------------------------------------------
+ * ------------------------------------------------------------------------------------------------
  * Program written by : Kevin Kalpala
- * Date               : 01 / 12 / 25
+ * Date               : 02 / 12 / 25
  * 
  * Description:
- * 
+ *  This program reads the names of electricity consumers along with the number of units consumed.
+ *  Based on the consumption, it calculates the bill amount using the following rate structure:
+ *  
+ *      - First 200 units:  ₹0.80 per unit
+ *      - Next 100 units:   ₹0.90 per unit
+ *      - Beyond 300 units: ₹1.00 per unit
+ *  
+ *  A minimum meter charge of ₹100 is applied to all customers. If the final calculated bill amount 
+ *  exceeds ₹400, a surcharge of 15% is added.
  * 
  * Input:
- * 
+ *  - Number of customers
+ *  - Each customer's name
+ *  - Units consumed by each customer
  * 
  * Output:
- * 
+ *  Displays the following information for each customer:
+ *  - Customer Name
+ *  - Units Consumed
+ *  - Final Electricity Bill Amount
  * 
  * Note:
- * 
- * --------------------------------------------------------------------------------------------------------------------------
+ *  Input validation is performed to ensure only valid integers and non-empty names are accepted.
+ * ------------------------------------------------------------------------------------------------
  */
 
 #include<stdio.h>

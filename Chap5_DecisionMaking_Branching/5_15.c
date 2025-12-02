@@ -6,9 +6,9 @@
  * Description:
  *      This program reads a double value 'x' representing an angle in radians and a character 'T' representing
  *      the trigonometric function to be applied. Based on the value of 'T', the program calculates and displays:
- *          - sin(x), if T = 's' or 'S'
- *          - cos(x), if T = 'c' or 'C'
- *          - tan(x), if T = 't' or 'T'
+ *          -- sin(x), if T = 's' or 'S'
+ *          -- cos(x), if T = 'c' or 'C'
+ *          -- tan(x), if T = 't' or 'T'
  * 
  *      The program includes two different decision-making approaches:
  *          1. IF-ELSE ladder (commented section)

@@ -4,16 +4,20 @@
  * Date               : 07 / 12 / 25
  * 
  * Description:
- * 
+ * This program calculates and prints the first 'm' terms of the Fibonacci series using a do...while loop.
+ * The Fibonacci sequence is a series of numbers where each term is the sum of the previous two terms.
+ * The series starts with 0 and 1.
  * 
  * Input:
- * 
+ * The user is prompted to enter a positive non-zero integer value 'm' which represents 
+ * the number of Fibonacci terms to be printed.
  * 
  * Output:
- * 
+ * Displays the Fibonacci series up to 'm' terms.
  * 
  * Note:
- * 
+ * The program includes input validation to ensure only positive integer values are accepted.
+ *
  * --------------------------------------------------------------------------------------------------------
  */
 

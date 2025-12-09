@@ -4,16 +4,20 @@
  * Date               : 09 / 12 / 25
  * 
  * Description:
- * 
+ * This program reads the age of 100 persons and counts how many 
+ * of them fall in the age group between 50 and 60 (inclusive). 
+ * The program makes use of a for loop to read the data and the 
+ * continue statement to skip values outside the specified range.
  * 
  * Input:
- * 
+ * Age of 100 persons entered by the user one by one.
  * 
  * Output:
- * 
+ * Total number of persons whose age lies between 50 and 60.
  * 
  * Note:
- * 
+ * Only valid positive integer age values below 100 are accepted. 
+ * Invalid inputs will prompt the user to re-enter the value.
  * -----------------------------------------------------------
  */
 

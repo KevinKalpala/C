@@ -4,16 +4,21 @@
  * Date               : 10 / 12 / 25
  * 
  * Description:
- * 
+ * This program reads a positive integer from the user and converts it into its binary
+ * representation. The binary digits (bits) are calculated by repeatedly dividing the
+ * number by 2 and storing the remainders. Finally, the stored bits are printed in
+ * reverse order to display the correct binary equivalent.
  * 
  * Input:
- * 
+ * A single positive integer entered by the user.
  * 
  * Output:
- * 
+ * The binary equivalent of the entered integer, printed bit by bit.
  * 
  * Note:
- * 
+ * - The program uses an integer array to store the binary digits.
+ * - Input validation is performed to ensure the user enters a valid positive integer.
+ * - The maximum number of bits stored is 30, which is sufficient for common integers.
  * -------------------------------------------------------------------------------------------------------------------------------------
  */
 

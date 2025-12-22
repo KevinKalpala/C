@@ -4,16 +4,26 @@
  * Date               : 22 / 12 / 25
  * 
  * Description:
+ * This program fits a straight line of the form y = mx + c through a given
+ * set of n data points (xi, yi) using the Least Squares Method.
+ * The slope (m) and intercept (c) are calculated using the formulas:
  * 
+ * m = [ n∑(xi yi) − (∑xi)(∑yi) ] / [ n∑(xi²) − (∑xi)² ]
+ * c = (1 / n) [ ∑yi − m∑xi ]
  * 
  * Input:
- * 
+ * - Number of data points (n), where n > 1
+ * - n pairs of integer values representing the coordinates (xi, yi)
  * 
  * Output:
- * 
+ * - The equation of the best-fit straight line in the form y = mx + c
+ * - The list of points used to compute the equation
  * 
  * Note:
- * 
+ * - Proper input validation is performed to ensure valid integer inputs.
+ * - If the denominator in the slope calculation becomes zero, the line
+ *   cannot be determined and an appropriate message is displayed.
+ * - Long integer variables are used for summations to reduce overflow risk.
  * ----------------------------------------------------------------------------------------------------------------------------------
  */
 

@@ -21,7 +21,7 @@
 
 #define CLASS_SIZE 10
 
-void getData(int arr[][], int size, int entries);
+void getData(int array[][4], int size, int entries);
 
 int main()
 {
@@ -34,7 +34,7 @@ int main()
     return 0;
 }
 
-void getData(int arr[][], int size, int entries)
+void getData(int array[][4], int size, int entries)
 {
     int data;
 
@@ -45,10 +45,29 @@ void getData(int arr[][], int size, int entries)
         {
             while(1)
             {
-                if (j == 0) printf("Please enter the Roll No for student %d :", i);
-                else if (printf("Please enter the marks of subject %d : "j);
+                if (j == 0) printf("Roll No for student %d :", i);
+                    
+                if (j < 4 && j >= 1) printf("Marks of subject %d : ", j);
 
-            
+                if (scanf("%d", &data) != 1)
+                {
+                    printf("Error: Value could not be read as an integer\n");
+                    printf("Please try again....................\n");
+                    while(getchar() != '\n' && !feof(stdin));
+                    continue;
+                }
+                else if (data < 0 || data > 100)
+                {
+                    printf("Error: Invalid input. Please enter a value between 0 and 100 (both included)\n");
+                    while(getchar() != '\n' && !feof(stdin));
+                    continue;
+                }
+                else
+                {
+                    array[i][j] = data;
+                    break;
+                }
+            }
         }
     }
 }

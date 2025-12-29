@@ -4,15 +4,32 @@
  * Date               : 23 / 12 / 25
  * 
  * Description:
+ * This program stores and processes the academic details of students in a class.
+ * It accepts the roll number and marks of three subjects for each student.
+ * The program validates inputs to ensure:
+ *  - Roll numbers are unique
+ *  - Marks entered are within the valid range (0 to 100)
  * 
+ * After collecting the data, the program:
+ *  (a) Calculates and displays the total marks obtained by each student.
+ *  (b) Determines the highest marks scored in each subject and displays the
+ *      roll number(s) of the student(s) who secured those marks.
+ *      If multiple students score the same highest marks, all corresponding
+ *      roll numbers are displayed.
  * 
  * Input:
- * 
+ * - Roll number for each student
+ * - Marks for three subjects for each student (values between 0 and 100)
  * 
  * Output:
- * 
+ * - A formatted table displaying roll number, subject-wise marks, and total marks
+ * - Highest marks for each subject along with the roll number(s) of the student(s)
+ *   who achieved them
  * 
  * Note:
+ * - The class size is fixed using a macro (CLASS_SIZE = 10)
+ * - The program uses a 2D array to store student data
+ * - Input validation is performed to prevent invalid or duplicate entries
  * 
  * -------------------------------------------------------------------------------------------------------------------------------------
  */

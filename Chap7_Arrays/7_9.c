@@ -4,16 +4,23 @@
  * Date               : 30 / 12 / 25
  * 
  * Description:
- * 
+ * This program implements the Selection Sort algorithm by repeatedly selecting the largest element
+ * from the unsorted portion of an array and swapping it with the last element of that portion.
+ * With each pass, the size of the unsorted list is reduced by one until the entire array is sorted
+ * in ascending order.
  * 
  * Input:
- * 
+ * - An integer value representing the size of the array (greater than or equal to 1)
+ * - Integer elements of the array entered by the user
  * 
  * Output:
- * 
+ * - The elements of the array printed in ascending sorted order
  * 
  * Note:
- * 
+ * - The program uses input validation to ensure only valid integer values are accepted.
+ * - The array size is dynamically determined at runtime.
+ * - The sorting logic is based on the Selection Sort technique by selecting the maximum element
+ *   in each iteration.
  * ----------------------------------------------------------------------------------------------------------------------------
  */
 

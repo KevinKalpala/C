@@ -18,8 +18,7 @@
  * 
  * Note:
  *      The program uses only 'if' statements (no else or switch), fulfilling the problem requirement.
- *      Variables i and j represent the row and column positions of the grid.
- * 
+ *      Variables i and j represent the row and column positions of the grid. 
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 

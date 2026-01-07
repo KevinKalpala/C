@@ -35,7 +35,6 @@
  * - The program uses iterative binary search
  * - Proper error handling is implemented for invalid inputs
  * - Array indexing starts from 0
- * 
  * ------------------------------------------------------------------------------------------------------------------------
  */
 

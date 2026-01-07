@@ -4,82 +4,83 @@
  * Date               : 06 / 01 / 26
  * 
  * Description:
+ *      This program reads an International Standard Book Number (ISBN-10)
+ *      in the form XXXX-XXX-XXXX-X (with or without hyphens).
+ *      The program extracts only the numeric digits from the input and
+ *      stores them into an integer array.
  * 
+ *      It then validates the ISBN using the official checksum formula:
+ *          Sum = (1 × digit1) + (2 × digit2) + ... + (9 × digit9)
+ *          Check digit = Sum % 11
+ *      If the calculated check digit matches the last digit entered,
+ *      the ISBN is declared valid; otherwise, it is invalid.
  * 
  * Input:
- * 
+ *      A single ISBN number containing digits and separators such as:
+ *          Example: 0-07-041183-2
+ *      Only digits are extracted; any other character is ignored.
  * 
  * Output:
- * 
+ *      Displays whether:
+ *          • "The ISBN is valid"  → if checksum matches
+ *          • "The ISBN is not valid" → if checksum fails
+ *          • "Invalid ISBN format" → if fewer or more than 10 digits entered
  * 
  * Note:
- * 
+ *      - The ISBN must contain exactly 10 numeric digits.
+ *      - Hyphens do not affect validation.
+ *      - This program does not support 'X' as check digit (sometimes used in ISBN-10).
  * ----------------------------------------------------------------------------------------------------------------------------------
  */
 
 #include<stdio.h>
 
-void getISBN(char* prompt, char no[], int size);
+void getISBN(char* prompt, int size, int number[size]);
 
-void checkISBN(char no[], int size);
+void checkISBN(int size, int number[size]);
 
 int main()
 {
-    char isbn[14];
+    int isbn[10];
     
     printf("\n****** Welcome User! ******\n\n");
     
-    getISBN("Please enter the ISBN for the customer :-\n", isbn, 14);
+    getISBN("Please enter the ISBN for the customer (eg :- 0-07-041183-2):-\n", 10, isbn);
     
-    checkISBN(isbn, 14);
+    checkISBN(10, isbn);
     
     return 0;
 }
 
-void getISBN(char* prompt, char no[], int size)
+void getISBN(char* prompt, int size, int number[size])
 {
+    char ch;
+    int arrIndex = 0;
+    
     printf("%s", prompt);
-    for(int i = 0; i < size; i++)
+    
+    while(arrIndex < size && (ch = getchar()) != '\n' && ch != EOF)
     {
-        while(1)
+        if (ch >= '0' && ch <= '9')
         {
-            if (i == 1 || i == 4 || i == 11) no[i] = '-';
-            else if (i == 13) no[i] = '\0';
-            else
-            {
-                scanf(" %c", &no[i]);
-
-                if (no[i] < '0' || no[i] > '9')
-                {
-                    printf("Error: Value could not be read as a character\n");
-                    printf("Please try again..........\n");
-                    while(getchar() != '\n' && !feof(stdin));
-                    continue;
-                }
-                else
-                {
-                    break;
-                }
-            }
+            number[arrIndex++] = ch - '0';
         }
+    }
+
+    if(arrIndex != 10) {
+        printf("Invalid ISBN format\n");
+        return;
     }
 }
 
-void checkISBN(char no[], int size)
+void checkISBN(int size, int number[size])
 {
     int sum = 0;
-    for(int i = 0; i < (size - 2); i++)
+    for(int i = 0; i < size - 1; i++)
     {
-        if (no[i] == '-')
-        {
-            // do nothing;
-        }
-        else
-        {
-            sum += ((i+1) * (no[i] - '0'));
-        }
+        sum += ((i + 1) * number[i]);
     }
 
-    if (sum % 11 == (no[12] - '0')) printf("The given ISBN is valid\n");
-    else printf("The given ISBN is invalid\n");
+    if (sum % 11 == number[9]) printf("The ISBN is valid\n");
+    else printf("The ISBN is not valid\n");
 }

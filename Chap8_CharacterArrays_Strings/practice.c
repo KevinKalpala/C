@@ -7,7 +7,7 @@ int main()
 
     fgets(fullName, 22, stdin);
 
-    printf("%s", fullName+14);
+    printf("%*.*s", 10, 7, fullName+14);
 
     return 0;
 }

@@ -46,7 +46,7 @@ int main()
     
     for(int i = 0; i < 21; i++)
     {
-        printf("%s %s %s")
+        printf("%s %s %s");
     }
     
     return 0;
